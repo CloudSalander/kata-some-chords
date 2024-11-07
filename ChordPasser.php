@@ -17,7 +17,7 @@ class ChordPasser {
         while($con < $number_of_chords) {
             $chord = readline("Please, enter one of this chords: ".implode(", ",ChordPasser::CHORDS));
             if(in_array($chord,ChordPasser::CHORDS)) {
-                $this->setChordsToPractice[] = $chord;
+                $this->chordsToPractice[] = $chord;
                 ++$con;
             }
             else echo "Please, enter right chord";
@@ -28,18 +28,17 @@ class ChordPasser {
         //TODO: Input validation
         //$intervalDuration = "not numeric";
         //while(!is_numeric($intervalDuration)) {
-            $intervalDuration = intval(readline("What interval between chords?(in seconds,please)"));
+            $this->intervalDuration = intval(readline("What interval between chords?(in seconds,please)"));
         //}
-        var_dump($intervalDuration);     
+           
     }
     public function setPracticeDuration(): void {}
 
     public function beginPractice(): void {
         while(1) {
-            var_dump($this->setChordsToPractice());
             $random_chord_index = array_rand($this->chordsToPractice);
-            echo $this->chordsToPractice($random_chord_index);
-            sleep($this->setIntervalDuration);
+            echo $this->chordsToPractice[$random_chord_index].PHP_EOL;
+            sleep($this->intervalDuration);
         }
     }
 
