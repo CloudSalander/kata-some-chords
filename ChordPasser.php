@@ -22,12 +22,26 @@ class ChordPasser {
             }
             else echo "Please, enter right chord";
         }
-        var_dump($this->setChordsToPractice);
     }
-    
-    public function setIntervalDuration(): void {}
+
+    public function setIntervalDuration(): void {
+        //TODO: Input validation
+        //$intervalDuration = "not numeric";
+        //while(!is_numeric($intervalDuration)) {
+            $intervalDuration = intval(readline("What interval between chords?(in seconds,please)"));
+        //}
+        var_dump($intervalDuration);     
+    }
     public function setPracticeDuration(): void {}
-    public function beginPractice(): void {}
+
+    public function beginPractice(): void {
+        while(1) {
+            var_dump($this->setChordsToPractice());
+            $random_chord_index = array_rand($this->chordsToPractice);
+            echo $this->chordsToPractice($random_chord_index);
+            sleep($this->setIntervalDuration);
+        }
+    }
 
 }
 
