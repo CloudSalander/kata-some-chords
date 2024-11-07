@@ -5,3 +5,4 @@ major an minor chords. We know the existence of more chords */
 include("ChordPasser.php");
 
 $chordPasser = new ChordPasser();
+$chordPasser->setChordsToPractice();

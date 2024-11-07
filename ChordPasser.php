@@ -11,10 +11,23 @@ class ChordPasser {
         $this->chordsToPractice = [];
     }
 
-    private function setChordsToPractice(): void {}
-    private function setIntervalDuration(): void {}
-    private function setPracticeDuration(): void {}
-    private function beginPractice(): void {}
+    public function setChordsToPractice(): void {
+        $number_of_chords = intval(readline("How many chords you want to practice?"));
+        $con = 0;
+        while($con < $number_of_chords) {
+            $chord = readline("Please, enter one of this chords: ".implode(", ",ChordPasser::CHORDS));
+            if(in_array($chord,ChordPasser::CHORDS)) {
+                $this->setChordsToPractice[] = $chord;
+                ++$con;
+            }
+            else echo "Please, enter right chord";
+        }
+        var_dump($this->setChordsToPractice);
+    }
+    
+    public function setIntervalDuration(): void {}
+    public function setPracticeDuration(): void {}
+    public function beginPractice(): void {}
 
 }
 
