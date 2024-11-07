@@ -25,12 +25,11 @@ class ChordPasser {
     }
 
     public function setIntervalDuration(): void {
-        //TODO: Input validation
-        //$intervalDuration = "not numeric";
-        //while(!is_numeric($intervalDuration)) {
-            $this->intervalDuration = intval(readline("What interval between chords?(in seconds,please)"));
-        //}
-           
+        $intervalDuration = "not numeric";
+        while(!is_numeric($intervalDuration)) {
+            $intervalDuration = intval(readline("What interval between chords?(in seconds,please)"));
+        }
+        $this->intervalDuration = $intervalDuration;
     }
     public function setPracticeDuration(): void {}
 
