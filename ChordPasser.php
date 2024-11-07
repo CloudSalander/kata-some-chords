@@ -25,19 +25,27 @@ class ChordPasser {
     }
 
     public function setIntervalDuration(): void {
-        $intervalDuration = "not numeric";
+        $intervalDuration = "";
         while(!is_numeric($intervalDuration)) {
             $intervalDuration = intval(readline("What interval between chords?(in seconds,please)"));
         }
         $this->intervalDuration = $intervalDuration;
     }
-    public function setPracticeDuration(): void {}
+    public function setPracticeDuration(): void {
+        $practiceDuration = "";
+        while(!is_numeric($practiceDuration)) {
+            $practiceDuration = intval(readline("What time you want to practice?(in minutes,please)"));
+        }
+        $this->practiceDuration = $practiceDuration*60; #We will use seconds here.
+    }
 
     public function beginPractice(): void {
-        while(1) {
+        $begin_time = $current_time = time();
+        while(($current_time - $begin_time) < $this->practiceDuration) {
             $random_chord_index = array_rand($this->chordsToPractice);
             echo $this->chordsToPractice[$random_chord_index].PHP_EOL;
             sleep($this->intervalDuration);
+            $current_time = time();
         }
     }
 

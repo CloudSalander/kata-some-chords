@@ -7,4 +7,5 @@ include("ChordPasser.php");
 $chordPasser = new ChordPasser();
 $chordPasser->setChordsToPractice();
 $chordPasser->setIntervalDuration();
+$chordPasser->setPracticeDuration();
 $chordPasser->beginPractice();
